@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solana-devnet</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <body>
+        <div class="login-page">
+          <div class="form">
+            <div class="login">
+              <div class="login-header">
+                <h3>SOLANA</h3>
+                <p>Please enter Transaction address</p>
+              </div>
+            </div>
+            <form class="login-form">
+                <input type="text" id="InputText" name="InputText">
+              <button type="button" onclick="submitForm()">submit</button>
+            </form>
+            <script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.js"></script>
+    <script>
+        const {Connection, PublicKey} = solanaWeb3;    </script>
+    <script>
+        
+        function submitForm() {
+            //trans address {EFTNh5uxGt2m4KUJdRwBRzMAkeCda4Zg6oKbGRNrzZz}
+
+            var solanaPublickey = document.getElementById("InputText").value;
+
+            //code cpy
+            let publickeyobj = new PublicKey(solanaPublickey);
+            
+
+            // connection
+            const connection = new Connection("https://api.devnet.solana.com");
+
+            // 5YNmS1R9nNSCDzb5a7mMJ1dwK9uHeAAF4CmPEwKgVWr8
+
+            const fn = (async () => {
+            // 1e9 lamports = 10^9 lamports = 1 SOL
+            let txhash = await connection.requestAirdrop(publickeyobj, 1e9);
+            console.log(`txhash: ${txhash}`);
+          
+
+            const InputText = document.getElementById("InputText").value;
+            alert("you entered:"+InputText);
+            });
+            fn();
+        }
+    </script>
+          </div>
+        </div>
+    </body>
+    
+</body>
+</html>
