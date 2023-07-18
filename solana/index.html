@@ -27,21 +27,16 @@
     <script>
         
         function submitForm() {
-            //trans address {EFTNh5uxGt2m4KUJdRwBRzMAkeCda4Zg6oKbGRNrzZz}
 
             var solanaPublickey = document.getElementById("InputText").value;
 
-            //code cpy
             let publickeyobj = new PublicKey(solanaPublickey);
             
 
-            // connection
             const connection = new Connection("https://api.devnet.solana.com");
 
-            // 5YNmS1R9nNSCDzb5a7mMJ1dwK9uHeAAF4CmPEwKgVWr8
 
             const fn = (async () => {
-            // 1e9 lamports = 10^9 lamports = 1 SOL
             let txhash = await connection.requestAirdrop(publickeyobj, 1e9);
             console.log(`txhash: ${txhash}`);
           
